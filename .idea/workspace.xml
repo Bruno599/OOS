@@ -22,6 +22,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -45,7 +46,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571904673945</updated>
-      <workItem from="1571904678116" duration="644000" />
+      <workItem from="1571904678116" duration="646000" />
+      <workItem from="1571991263230" duration="1686000" />
+      <workItem from="1571992977184" duration="3142000" />
     </task>
     <servers />
   </component>
@@ -57,7 +60,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
