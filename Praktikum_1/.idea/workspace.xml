@@ -12,6 +12,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -42,6 +43,54 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Application.Main (2)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aufgabe1.Main" />
+      <module name="Praktikum_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aufgabe3.Main" />
+      <module name="Praktikum_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aufgabe3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aufgabe2.Main" />
+      <module name="Praktikum_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aufgabe2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (2)" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -53,6 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1571904725174</updated>
       <workItem from="1571904729008" duration="3311000" />
+      <workItem from="1572075388354" duration="4792000" />
+      <workItem from="1572185321200" duration="15848000" />
     </task>
     <servers />
   </component>
@@ -64,7 +115,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

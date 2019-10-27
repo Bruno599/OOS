@@ -50,5 +50,10 @@ public class Point {
         return ("X: " + this.x + " Y: " + this.y);
     }
 
+    public void printpoint(){
+
+        System.out.print("Kreiskoordinaten: \nHorizontan(X) = " + x + "\nVertikal(Y) = " + y + "\n");
+    }
+
 
 }

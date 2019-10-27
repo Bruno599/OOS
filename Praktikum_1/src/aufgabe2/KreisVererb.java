@@ -1,5 +1,7 @@
 package aufgabe2;
 
+import javax.swing.plaf.basic.BasicSplitPaneUI;
+
 public class KreisVererb extends Point {
 
     int radius;
@@ -21,6 +23,12 @@ public class KreisVererb extends Point {
         radius = r;
     }
 
+    public KreisVererb(KreisVererb kv){
+
+        super(kv.x, kv.y);
+        this.radius = kv.radius;
+    }
+
     public void setRadius(int r){
 
         radius = r;
@@ -34,6 +42,17 @@ public class KreisVererb extends Point {
     public boolean equals(KreisVererb kv){
 
         return(this.getLocation().equals(kv.getLocation()) && this.getRadius() == kv.getRadius());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Radius: " + this.radius;
+    }
+
+    public void printkreis(){
+
+        printpoint();
+        System.out.print("Radius = " + radius + "\n");
     }
 
 }
