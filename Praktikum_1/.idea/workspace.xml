@@ -24,6 +24,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,6 +105,8 @@
       <workItem from="1571904729008" duration="3311000" />
       <workItem from="1572075388354" duration="4792000" />
       <workItem from="1572185321200" duration="15848000" />
+      <workItem from="1572208873752" duration="3928000" />
+      <workItem from="1572260243717" duration="6044000" />
     </task>
     <servers />
   </component>

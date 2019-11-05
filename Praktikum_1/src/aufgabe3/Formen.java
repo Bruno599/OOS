@@ -1,6 +1,10 @@
 package aufgabe3;
 
-public interface Formen {
+public interface Formen<T> {
 
-    double flaecheninhalt();
+    public double flaecheninhalt();
+    public boolean equals( Object T);
+    public Object clone();
+    public String toString();
+
 }

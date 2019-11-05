@@ -2,23 +2,22 @@ package aufgabe1;
 
 public class Pascdreieck {
 
-            int tiefe = 0;
+            //int tiefe = 10;
             int [][] dreieck;
 
-        public Pascdreieck(int t) {
+        public Pascdreieck() {
 
-            tiefe = t;
-            dreieck = new int[t][];
+            dreieck = new int[10][]; //neues 2d Arreay aus int variablen
 
-            int i;
-            int j;
+            //int i; //schleifenvariable Hauptschleife
+            //int j; //schleifenvariable Sekundärschleife
 
-            for (i=0;i<tiefe;i++)
+            for (int i=0;i<10;i++)
             {
                 dreieck[i] = new int[i+1];
                 dreieck[i][0] = 1;
 
-                for(j=1;j<i;j++)
+                for(int j=1;j<i;j++)
                 {
                     dreieck[i][j] = dreieck[i-1][j-1]+dreieck[i-1][j];
                 }
@@ -28,13 +27,13 @@ public class Pascdreieck {
 
         };
 
-        public void print_pascdreieck(){
+        public void print_pascdreieck(){ //funktion zur Ausgabe des Dreiecks
 
-            int t = this.tiefe;
-            int i;
-            int j;
 
-            for(i = 0; i<t; i++){
+            int i; //schleifenvariable Hauptschleife
+            int j; //schleifenvariable Sekundärschleife
+
+            for(i = 0; i<10; i++){
 
                 for(j = 0; j <= i;j++){
 
