@@ -19,6 +19,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1THMJrsTZkIufW7oVWfx3pNiiMH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -31,6 +38,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -96,6 +107,10 @@
       <workItem from="1573112501870" duration="2985000" />
       <workItem from="1573385647945" duration="1452000" />
       <workItem from="1573388159581" duration="21474000" />
+      <workItem from="1573428101493" duration="142000" />
+      <workItem from="1573471254948" duration="1876000" />
+      <workItem from="1573473391203" duration="422000" />
+      <workItem from="1573473850861" duration="3357000" />
     </task>
     <servers />
   </component>

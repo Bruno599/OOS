@@ -2,10 +2,45 @@ package Aufgabe1;
 
 public class Main {
 
+
     public static void main(String[] args){
+
+        // test ob zwei benutzer identisch sind
+        Benutzer User1 = new Benutzer("test","12345".toCharArray());
+        Benutzer User2 = new Benutzer("test2", "12345".toCharArray());
+        Benutzer User3 = new Benutzer("test", "12345".toCharArray());
+
+       if(User1.equals(User2))
+       {
+           System.out.println("Bnutzer sind gleich");
+       }
+       else
+       {
+           System.out.println("Benutzer sind ungleich");
+       }
+
+        if(User1.equals(User3))
+        {
+            System.out.println("Bnutzer sind gleich");
+        }
+        else
+        {
+            System.out.println("Benutzer sind ungleich");
+        }
+
+        if(User1.equals("test"))
+        {
+            System.out.println("test nicht erfolgreich");
+        }
+        else
+        {
+            System.out.println("test erfolgreich");
+        }
+
 
 
             BenutzerVerwaltungAdmin verwaltung = new BenutzerVerwaltungAdmin();
+
         try{
             verwaltung.benutzerEintragen(new Benutzer("test", "123456".toCharArray()));
             verwaltung.benutzerEintragen(new Benutzer("test", "123456".toCharArray())); //

@@ -4,14 +4,27 @@ import java.util.ArrayList;
 
 public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
 
+    /**
+     * Arrayliste in der alle Objekte des Typen Benutzer gespeichert werden
+     */
 
-     private ArrayList<Benutzer> Users;
+     private ArrayList<Benutzer> users;
+
+    /**
+     * Defaultkonstruktor der die Instanz der Arrayliste anlegt
+     */
 
      public BenutzerVerwaltungAdmin(){
 
-      this.Users = new ArrayList<Benutzer>();
+      this.users = new ArrayList<Benutzer>();
      }
 
+    /**
+     *
+     * @param benutzer
+     * @throws BenutzerExistiertBereits
+     * @throws BenutzerIDIstSchonVergeben
+     */
     public void benutzerEintragen (Benutzer benutzer)
             throws BenutzerExistiertBereits, BenutzerIDIstSchonVergeben{
 
@@ -22,21 +35,33 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
             throw new BenutzerIDIstSchonVergeben("BenutzerID ist schon Vergeben");
         }
         else{
-            Users.add(benutzer);
+            users.add(benutzer);
             System.out.println("Benutzer wurde Angelegt");
         }
 
     };
 
+    /**
+     *
+     * @param benutzer
+     * @return
+     */
     public boolean benutzerOk(Benutzer benutzer){
-        return (Users.contains(benutzer));
+        return (users.contains(benutzer));
     };
+
+    /**
+     * Loescht einen Benutzer aus der Datenhaltung
+     * @param benutzer
+     * @throws BenutzerKonnteNIchtGelöschtWerden wird ausgelöst wenn benutzer nach löschvorgang in der Datenhaltung ist
+     * @throws BenutzerNichtVorhanden wird ausgelöst wenn der zu löschende Benutzer nicht vorhanden ist.
+     */
 
     public void benutzerLöschen(Benutzer benutzer)
             throws BenutzerKonnteNIchtGelöschtWerden, BenutzerNichtVorhanden {
             if ( benutzerOk(benutzer) ) {
 
-                Users.remove(benutzer);
+                users.remove(benutzer);
                 if (benutzerOk(benutzer)) {
 
                    throw new BenutzerKonnteNIchtGelöschtWerden
@@ -51,10 +76,17 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
             }
     }
 
+    /**
+     * Ermittelt die Anzahl der in der Datenhaltung gespeicherten Benutzer
+     * @return gibt die Anzahl als int zurück.
+     */
     public int getAnzahlUser(){           // ließt die Anzahl der in der Datenstruktur gespeicherten Einträge aus
-        return Users.size();
+        return users.size();
     }
 
+    /**
+     *  Gibt alle Benutzer in der Datenhaltung aus
+     */
     public void printUsers (){          //gibt alle, in der Bdatenstrucktur geseicherten Benutzer aus
         int anzahl = getAnzahlUser();
 
@@ -63,17 +95,22 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
         for (int i = 0; i < anzahl; i++)
         {
             System.out.print(i+1+ " ");
-            System.out.println(Users.get(i).toString());
+            System.out.println(users.get(i).toString());
         }
     }
 
+    /**
+     * Funktion zum ermitteln ob ed die Userid in der Benutzerverwaltung schon gibt
+     * @param benutzer zum vergleichen ob es die USerid schon gibt
+     * @return gibt ein true zurück wenn die BenutzerID vorhanden ist
+     */
     public boolean getUserID(Benutzer benutzer) {
 
         int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
 
         for (int i = 0; i < anzahl; i++)
         {
-            if(Users.get(i).userID.equals(benutzer.userID)){
+            if(users.get(i).userID.equals(benutzer.userID)){
                 return true;
             }
         }

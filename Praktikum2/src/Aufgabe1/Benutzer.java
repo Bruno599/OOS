@@ -4,8 +4,10 @@ import java.util.Arrays;
 
 public class Benutzer {
 
+    //private
     String userID;      // BenutzerID des Benutzers
-    char passWort[];    // Passwort des Benutzers
+    //private
+    char[] passWort;    // Passwort des Benutzers
 
     /**
      * Defaultconstuktor der Klasse Benutzer
@@ -25,6 +27,7 @@ public class Benutzer {
         this.passWort = pw;
     }
 
+
     /**
      * Überlagerte methode equals der Klasse Benutzer
      * Hierbei habe ich nicht den in den Praktikumsunterlagen vorgeschalgenen
@@ -43,7 +46,6 @@ public class Benutzer {
     /**
      * Überlagrte Funktion toString der Klasse Benutzer
      */
-
     @Override
     public String toString() {
         return "Benutzer{" +
