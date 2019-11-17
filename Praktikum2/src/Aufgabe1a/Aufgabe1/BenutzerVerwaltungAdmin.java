@@ -33,12 +33,12 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
         return (Users.contains(benutzer));
     };
 
-    public void benutzerLöschen(Benutzer benutzer) {
+    public void benutzerLoeschen(Benutzer benutzer) {
             try {
                 if (benutzerOk(benutzer)) {
                     Users.remove(benutzer);
                     if (benutzerOk(benutzer)) {
-                        throw new BenutzerKonnteNIchtGelöschtWerden("Benutzer konnte nicht gelöscht werden");
+                        throw new BenutzerKonnteNIchtGeloeschtWerden("Benutzer konnte nicht gelöscht werden");
                     } else {
                         System.out.println("Benutzer wurde erfolgreich gelöscht");
                     }

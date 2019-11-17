@@ -57,7 +57,7 @@ public class Main {
 
         try{
             verwaltung.benutzerEintragen(new Benutzer("hallo", "54321".toCharArray()));
-            verwaltung.benutzerLöschen(new Benutzer("hallo", "54321".toCharArray()));
+            verwaltung.benutzerLoeschen(new Benutzer("hallo", "54321".toCharArray()));
 
         }
         catch (BenutzerExistiertBereits e){
@@ -73,7 +73,7 @@ public class Main {
             System.out.println("Löschen fehlgeschlagen: Benutzer nicht vorhanden");
             e.printStackTrace();
         }
-        catch (BenutzerKonnteNIchtGelöschtWerden e){
+        catch (BenutzerKonnteNIchtGeloeschtWerden e){
             System.out.println("Löschen fehlgeschlagen: Benutzer konnte nicht gelöscht werden");
             e.printStackTrace();
         }
@@ -92,9 +92,9 @@ public class Main {
         }
 
         try{
-            verwaltung.benutzerLöschen(new Benutzer("helloo", "peter".toCharArray()));
+            verwaltung.benutzerLoeschen(new Benutzer("helloo", "peter".toCharArray()));
             verwaltung.benutzerEintragen(new Benutzer());
-            verwaltung.benutzerLöschen(new Benutzer());
+            verwaltung.benutzerLoeschen(new Benutzer());
             verwaltung.benutzerEintragen(new Benutzer());
             verwaltung.printUsers();
         }
@@ -113,7 +113,7 @@ public class Main {
                     "Benutzer nicht vorhanden");
             e.printStackTrace();
         }
-        catch (BenutzerKonnteNIchtGelöschtWerden e){
+        catch (BenutzerKonnteNIchtGeloeschtWerden e){
             System.out.println("Löschen fehlgeschlagen: " +
                     "Benutzer konnte nicht gelöscht werden");
             e.printStackTrace();
@@ -121,7 +121,7 @@ public class Main {
 
         try{
             verwaltung.benutzerEintragen(new Benutzer());
-            verwaltung.benutzerLöschen(new Benutzer());
+            verwaltung.benutzerLoeschen(new Benutzer());
             verwaltung.benutzerEintragen(new Benutzer());
             verwaltung.printUsers();
         }
@@ -140,7 +140,7 @@ public class Main {
                     "Benutzer nicht vorhanden");
             e.printStackTrace();
         }
-        catch (BenutzerKonnteNIchtGelöschtWerden e){
+        catch (BenutzerKonnteNIchtGeloeschtWerden e){
             System.out.println("Löschen fehlgeschlagen: " +
                     "Benutzer konnte nicht gelöscht werden");
             e.printStackTrace();

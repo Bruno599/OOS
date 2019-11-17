@@ -25,8 +25,8 @@ class BenutzerIDIstSchonVergeben extends Exception{
     }
 }
 
-class BenutzerKonnteNIchtGelöschtWerden extends Exception{
-    public BenutzerKonnteNIchtGelöschtWerden (String message){
+class BenutzerKonnteNIchtGeloeschtWerden extends Exception{
+    public BenutzerKonnteNIchtGeloeschtWerden(String message){
         super(message);
     }
 }
