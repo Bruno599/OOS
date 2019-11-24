@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8ab1c918-7a93-419a-8e6b-c1d7436d9fbc" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1U1JZXgd63gASZrmITpL85eogBl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Praktikum2" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Aufgabe1" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.Tests">
+    <configuration name="BenutzerVerwaltungAdminTest.benutzerEintragen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Praktikum3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Aufgabe1" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
+      <option name="METHOD_NAME" value="benutzerEintragen" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BenutzerVerwaltungAdminTest.benutzerEintragenLeer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Praktikum3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Aufgabe1" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
+      <option name="METHOD_NAME" value="benutzerEintragenLeer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BenutzerVerwaltungAdminTest.searchUserIDDateiNichtInizialisiert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Praktikum3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Aufgabe1" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
+      <option name="METHOD_NAME" value="searchUserIDDateiNichtInizialisiert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BenutzerVerwaltungAdminTest.searchUserIDNichtGefunden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Praktikum3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Aufgabe1" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
+      <option name="METHOD_NAME" value="searchUserIDNichtGefunden" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Praktikum3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Aufgabe1" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.Tests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Tests" />
+        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.benutzerEintragenLeer" />
+        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.benutzerEintragen" />
+        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.searchUserIDNichtGefunden" />
+        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.searchUserIDDateiNichtInizialisiert" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ab1c918-7a93-419a-8e6b-c1d7436d9fbc" name="Default Changelist" comment="" />
+      <created>1574518223426</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574518223426</updated>
+      <workItem from="1574518226952" duration="28702000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
