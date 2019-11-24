@@ -19,6 +19,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -31,17 +37,18 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-13.0.1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -61,12 +68,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Aufgabe1a.Aufgabe1.Main" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.Main" />
       <module name="Praktikum2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Aufgabe1a.Aufgabe1.*" />
+          <option name="PATTERN" value="Aufgabe1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -75,11 +82,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Aufgabe1.Main" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1a.Aufgabe1.Main" />
       <module name="Praktikum2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="PATTERN" value="Aufgabe1a.Aufgabe1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,10 +118,7 @@
       <workItem from="1573471254948" duration="1876000" />
       <workItem from="1573473391203" duration="422000" />
       <workItem from="1573473850861" duration="3357000" />
-      <workItem from="1574259776541" duration="817000" />
-      <workItem from="1574517952080" duration="194000" />
-      <workItem from="1574518178935" duration="45000" />
-      <workItem from="1574518829582" duration="607000" />
+      <workItem from="1573992240538" duration="6033000" />
     </task>
     <servers />
   </component>

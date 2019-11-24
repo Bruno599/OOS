@@ -53,18 +53,18 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
     /**
      * Loescht einen Benutzer aus der Datenhaltung
      * @param benutzer
-     * @throws BenutzerKonnteNIchtGelöschtWerden wird ausgelöst wenn benutzer nach löschvorgang in der Datenhaltung ist
+     * @throws BenutzerKonnteNIchtGeloeschtWerden wird ausgelöst wenn benutzer nach löschvorgang in der Datenhaltung ist
      * @throws BenutzerNichtVorhanden wird ausgelöst wenn der zu löschende Benutzer nicht vorhanden ist.
      */
 
-    public void benutzerLöschen(Benutzer benutzer)
-            throws BenutzerKonnteNIchtGelöschtWerden, BenutzerNichtVorhanden {
+    public void benutzerLoeschen(Benutzer benutzer)
+            throws BenutzerKonnteNIchtGeloeschtWerden, BenutzerNichtVorhanden {
             if ( benutzerOk(benutzer) ) {
 
                 users.remove(benutzer);
                 if (benutzerOk(benutzer)) {
 
-                   throw new BenutzerKonnteNIchtGelöschtWerden
+                   throw new BenutzerKonnteNIchtGeloeschtWerden
                            ("Benutzer konnte nicht gelöscht werden");
                 }
                 else {
