@@ -65,7 +65,8 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.Tests">
-    <configuration name="BenutzerVerwaltungAdminTest.benutzerEintragen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.Main" />
       <module name="Praktikum3" />
       <extension name="coverage">
         <pattern>
@@ -73,10 +74,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Aufgabe1" />
-      <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
-      <option name="METHOD_NAME" value="benutzerEintragen" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,7 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BenutzerVerwaltungAdminTest.searchUserIDDateiNichtInizialisiert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BenutzerVerwaltungAdminTest.serialize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Praktikum3" />
       <extension name="coverage">
         <pattern>
@@ -107,23 +104,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Aufgabe1" />
       <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
-      <option name="METHOD_NAME" value="searchUserIDDateiNichtInizialisiert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BenutzerVerwaltungAdminTest.searchUserIDNichtGefunden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Praktikum3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Aufgabe1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Aufgabe1" />
-      <option name="MAIN_CLASS_NAME" value="Aufgabe1.BenutzerVerwaltungAdminTest" />
-      <option name="METHOD_NAME" value="searchUserIDNichtGefunden" />
+      <option name="METHOD_NAME" value="serialize" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,13 +125,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.benutzerTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Praktikum3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Aufgabe1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Aufgabe1" />
+      <option name="MAIN_CLASS_NAME" value="Aufgabe1.Tests" />
+      <option name="METHOD_NAME" value="benutzerTestSuite" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.benutzerEintragenLeer" />
-        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.benutzerEintragen" />
-        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.searchUserIDNichtGefunden" />
-        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.searchUserIDDateiNichtInizialisiert" />
+        <item itemvalue="JUnit.Tests.benutzerTestSuite" />
+        <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.serialize" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +161,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574518223426</updated>
-      <workItem from="1574518226952" duration="28702000" />
+      <workItem from="1574518226952" duration="31628000" />
+      <workItem from="1574673091504" duration="8653000" />
+      <workItem from="1575198308580" duration="1270000" />
+      <workItem from="1575759989167" duration="107000" />
     </task>
     <servers />
   </component>
@@ -176,7 +176,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

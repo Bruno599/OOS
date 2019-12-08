@@ -19,7 +19,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @throws IOException
      * @throws FalscherDateiNameExeption
      */
-    public void dbInitialisieren(String fn) throws DateiwurdeNichtGeloeschtExeption, IOException, FalscherDateiNameExeption{
+    void dbInitialisieren(String fn) throws DateiwurdeNichtGeloeschtExeption, IOException, FalscherDateiNameExeption{
 
         //filename = "test.txt";
         dateiname = fn;
@@ -30,21 +30,22 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
         if(exists && !file.delete()) {
             throw new DateiwurdeNichtGeloeschtExeption("Die alte Datei konnte nicht gelöscht werden");
         }
-        BenutzerVerwaltungAdmin verwaltung = new BenutzerVerwaltungAdmin();
+        //BenutzerVerwaltungAdmin verwaltung = new BenutzerVerwaltungAdmin();
+        users.clear();
 
         serialize(fn);
     }
 
 
     /**
-     *
+     * Schreibt Daten in die Datei
      * @param fn
      * @throws IOException
      * @throws FalscherDateiNameExeption
      */
     public void serialize(String fn) throws IOException, FalscherDateiNameExeption {
 
-            if (fn == dateiname){
+            if (fn.equals(dateiname)){
                 FileOutputStream fs = new FileOutputStream(fn);
                 ObjectOutputStream os = new ObjectOutputStream(fs);
                 os.writeObject(users);
@@ -57,7 +58,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
     }
 
     /**
-     *
+     * List Daten aus der Datei
      * @param fn
      * @throws ClassNotFoundException
      * @throws IOException
@@ -107,7 +108,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
     };
 
     /**
-     *
+     * List aus Datei und überprüft ob der Benutzer angelegt wurde.
      * @param benutzer
      * @return
      */

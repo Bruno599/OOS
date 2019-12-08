@@ -1,13 +1,19 @@
 package Aufgabe1;
 
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Assert;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class BenutzerVerwaltungAdminTest {
+
+
+public class BenutzerVerwaltungAdminTest { //extends TestCase{
 
     private BenutzerVerwaltungAdmin verwaltung;
     //private BenutzerVerwaltungAdmin verwaltung2;
@@ -19,6 +25,7 @@ public class BenutzerVerwaltungAdminTest {
      * b1 bis b5 sind testuser die für die Tests angelegt wurden
      * @throws Exception
      */
+
     @Before
     public void setUp() throws Exception {
         verwaltung = new BenutzerVerwaltungAdmin();
@@ -50,9 +57,45 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+
+    @Test
+    public void dbinizialisierenWennAlteDateiExistiert() {
+        try {
+            verwaltung.dbInitialisieren(datei);
+        } catch (IOException | DateiwurdeNichtGeloeschtExeption | FalscherDateiNameExeption e) {
+            e.printStackTrace();
+            fail("DB should be initialized without problems");
+        }
+
+        File tempFile = new File(datei);
+        boolean exists = tempFile.exists();
+        Assert.assertTrue(exists);
+    }
+
+    @Test
+    public void dbinizialisierenWennAlteDateiNichtExistiert() {
+        File tempFile = new File(datei);
+        boolean exists = tempFile.exists();
+        if (exists && tempFile.delete()) {
+            try {
+                verwaltung.dbInitialisieren(datei);
+            } catch (IOException | DateiwurdeNichtGeloeschtExeption | FalscherDateiNameExeption e) {
+                e.printStackTrace();
+                Assert.fail("DB should be initialized without problems");
+            }
+        } else {
+            Assert.fail("failed to delete old DB file");
+        }
+
+        exists = tempFile.exists();
+        Assert.assertTrue(exists);
+    }
+
+
     /**
      * Testet ob die erstellte Datei beschrieben werden kann
      */
+
     @Test
     public void serialize() {
         try{
@@ -87,7 +130,7 @@ public class BenutzerVerwaltungAdminTest {
 
         try{
             verwaltung.serialize("test1.txt");
-            Assert.fail("Datei sollte ohne Probleme beschrieben werden können");
+            Assert.fail("Dateiname stimmt nicht mit Datei überein");
         }
         catch(IOException | FalscherDateiNameExeption e) {
             e.printStackTrace();
@@ -111,7 +154,6 @@ public class BenutzerVerwaltungAdminTest {
 
         try{
             verwaltung.deserialize(datei);
-
         }
         catch(ClassNotFoundException | IOException e){
             e.printStackTrace();
@@ -163,7 +205,7 @@ public class BenutzerVerwaltungAdminTest {
         }
         catch (IOException | DateiwurdeNichtGeloeschtExeption | FalscherDateiNameExeption e){
             e.printStackTrace();
-            //Assert.fail("Datei sollte ohne Probleme erstellt werden können");
+            Assert.fail("Datei sollte ohne Probleme erstellt werden können");
         }
 
         try{
@@ -175,6 +217,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen des Falles, das ein leerer Benutzer hinzugefügt werden soll
+     */
     @Test
     public void benutzerEintragenLeer() {
         try{
@@ -182,7 +227,7 @@ public class BenutzerVerwaltungAdminTest {
         }
         catch (IOException | DateiwurdeNichtGeloeschtExeption | FalscherDateiNameExeption e){
             e.printStackTrace();
-            //Assert.fail("Datei sollte ohne Probleme erstellt werden können");
+            Assert.fail("Datei sollte ohne Probleme erstellt werden können");
         }
 
         try{
@@ -195,6 +240,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen des Falles, das ein Benutzer Doppelt hinzugefügt werden soll
+     */
     @Test
     public void benutzerEintragenBenutzerDoppelt() {
         try{
@@ -216,6 +264,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen des Falles, das ein Benutzer mit der einer schon vorhandenen ID eingetragen werden soll
+     */
     @Test
     public void benutzerEintragenIDDoppelt() {
         try{
@@ -237,6 +288,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode benutzer ok
+     */
     @Test
     public void benutzerOk() {
         try{
@@ -256,6 +310,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode BenutzerOk wenn Benutzer nicht vorhanden ist.
+     */
     @Test
     public void benutzerOkBenutzerNichtVorhanden() {
         try{
@@ -274,6 +331,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode BenutzerOK wenn die Datei nicht inizialisiert worden ist
+     */
     @Test
     public void benutzerOkDateiNichtInizialisiert() {
         try{
@@ -284,6 +344,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode Benutzerlöschen
+     */
     @Test
     public void benutzerLoeschen() {
         try{
@@ -303,6 +366,10 @@ public class BenutzerVerwaltungAdminTest {
             Assert.fail("Benutzer sollte gelöscht sein");
         }
     }
+
+    /**
+     * Testen der Methode Benutzer löschen, wenn der Benutzer nicht vorhanden ist
+     */
     @Test
     public void benutzerLoeschenDateiNichtInizialisiert() {
 
@@ -316,6 +383,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode Benutzerlöschen, wenn die Dtaei nicht inizialisiert worden ist
+     */
     @Test
     public void benutzerLoeschenNichtVorhanden() {
         try{
@@ -339,7 +409,9 @@ public class BenutzerVerwaltungAdminTest {
     }
 
 
-
+    /**
+     * Testen der Methode PrintUsers
+     */
     @Test
     public void printUsers() {
 
@@ -360,6 +432,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode PrintUsers, wenn die Datei nicht inizialisiert worden ist
+     */
     @Test
     public void printUsersDateiNichtInizialisiert() {
 
@@ -372,6 +447,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode serchUserID
+     */
     @Test
     public void searchUserID() {
         try{
@@ -391,6 +469,9 @@ public class BenutzerVerwaltungAdminTest {
         }
     }
 
+    /**
+     * Testen der Methode UserID, wenn die Datei vorher nicht inizialisiert worden ist
+     */
     @Test
     public void searchUserIDDateiNichtInizialisiert() {
 
