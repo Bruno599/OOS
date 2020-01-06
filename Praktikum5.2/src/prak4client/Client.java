@@ -18,7 +18,7 @@ public class Client extends Application {
     private BenutzerVerwaltungAdmin verwaltung;
     Stage primaryStage;
     private String address = "127.0.0.1";
-    private ClientOrb clientOrb;
+    private ClientOrb clientOrb = new ClientOrb(address);
     boolean remote = false;
 
     public boolean ask(){
@@ -56,15 +56,15 @@ public class Client extends Application {
         }
 
         switch (scene) {
-            case "prak4serv/LoginController.fxml":
+            case "LoginController.fxml":
                 ((LoginController)fxmlLoader.getController()).setMainApplication(this);
                 primaryStage.setTitle("Login");
                 break;
-            case "prak4serv/AnmeldungsController.fxml":
+            case "AnmeldungsController.fxml":
                 ((AnmeldungsController)fxmlLoader.getController()).setMainApplication(this);
                 primaryStage.setTitle("Anmeldung");
                 break;
-            case "prak4serv/anwendung.fxml":
+            case "anwendung.fxml":
                 ((AnwendungsController)fxmlLoader.getController()).setMainApplication(this);
                 primaryStage.setTitle("Anwendung");
                 break;
@@ -87,24 +87,24 @@ public class Client extends Application {
             verwaltung.dbInitialisieren("test");
         }
 
-        this.setScene("prak4serv/LoginController.fxml");
+        this.setScene("LoginController.fxml");
 
     }
 
     public void neuAnmeldung(){
 
-        setScene("prak4serv/AnmeldungsController.fxml");
+        setScene("AnmeldungsController.fxml");
     };
     public void neuAnmeldungRem(){
 
-        setScene("prak4serv/AnmeldungsController.fxml");
+        setScene("AnmeldungsController.fxml");
     };
 
     public void neuerBenutzer(Benutzer benutzer){
         try {
             verwaltung.benutzerEintragen(benutzer);
 
-            setScene("prak4serv/LoginController.fxml");
+            setScene("LoginController.fxml");
         }
         catch(Exception e){
             e.printStackTrace();
@@ -115,7 +115,7 @@ public class Client extends Application {
         try {
             clientOrb.benutzerEintragen(benutzer);
 
-            setScene("prak4serv/LoginController.fxml");
+            setScene("LoginController.fxml");
         }
         catch(Exception e){
             e.printStackTrace();
@@ -128,7 +128,7 @@ public class Client extends Application {
         try{
             verwaltung.benutzerOk(benutzer);
 
-            setScene("prak4serv/anwendung.fxml");
+            setScene("anwendung.fxml");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -142,7 +142,7 @@ public class Client extends Application {
         try{
             clientOrb.benutzerOK(benutzer);
 
-            setScene("prak4serv/anwendung.fxml");
+            setScene("anwendung.fxml");
         }
         catch (Exception e){
             e.printStackTrace();

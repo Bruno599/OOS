@@ -194,4 +194,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
         return false;
     }
 
+    public String getDateiname(){
+        return "!" + dateiname +"!";
+    }
 }

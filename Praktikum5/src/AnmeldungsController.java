@@ -45,7 +45,7 @@ public class AnmeldungsController {
      * @param event
      */
     @FXML
-    public void handleButtonAction(ActionEvent event) {
+    public void handleButtonAction(ActionEvent event) throws Exception{
         //String console = "test der konsole";
         String name = nameTextField.getText();
         String password = passwordField.getText();
@@ -58,8 +58,13 @@ public class AnmeldungsController {
 
         Benutzer bn = new Benutzer(name,password.toCharArray());
 
-        this.MainAp.neuerBenutzer(bn);
-
+        try {
+            this.MainAp.neuerBenutzer(bn);
+        }catch(BenutzerExistiertBereitsExeption e){
+            nameTextField.setText("Fehler bei der Registrierung");
+            passwordField.setText("");
+            passwordFieldVerify.setText("");
+        }
 
         //System.out.println(name.equals(password));
         //System.out.println(console);

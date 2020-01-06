@@ -30,12 +30,10 @@ public class LoginController {
     };
 
     @FXML
-    public void handleButtonAction(ActionEvent event) {
+    public void handleButtonAction(ActionEvent event) throws Exception {
         //String console = "test der konsole";
         String name = nameTextField.getText();
         String password = passwordField.getText();
-
-
 
         if (checkBox.isSelected())
         {
@@ -44,7 +42,13 @@ public class LoginController {
         else
         {
             User1 = new Benutzer(name,password.toCharArray());
-            this.MainAp.benutzerLogin(User1);
+            try {
+                this.MainAp.benutzerLogin(User1);
+            }catch(BenutzerNichtVorhandenExeption e){
+                nameTextField.setText("Fehler beim Login");
+                passwordField.setText("");
+
+        }
         }
 
         //Stage stage = (Stage) closeButton.getScene().getWindow();

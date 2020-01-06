@@ -14,6 +14,8 @@ public class MainApplication extends Application {
 
     private BenutzerVerwaltungAdmin verwaltung;
     Stage primaryStage;
+    int input = -1;
+    boolean fehler = false;
 
 
 
@@ -21,22 +23,33 @@ public class MainApplication extends Application {
     public boolean ask(){
         boolean dbInitialisierenint = false;
 
-        try {
-            System.out.println("Möchten Sie eine neue Datenhaltung inizialisieren?");
+        while (input != 1 || input != 0) {
+            try {
+                System.out.println("Möchten Sie eine neue Datenhaltung inizialisieren?");
 
-            BufferedReader din = new BufferedReader(
-                    new InputStreamReader(System.in));
+                BufferedReader din = new BufferedReader(
+                        new InputStreamReader(System.in));
 
-                    if(Integer.parseInt(din.readLine()) > 0){
-                        dbInitialisierenint = true;
-                    };
+                input = Integer.parseInt(din.readLine());
+
+                if (input == 1) {
+                    dbInitialisierenint = true;
+                    break;
+                }
+
+            if (input == 0){
+                dbInitialisierenint = false;
+                break;
+            }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                continue;
+            }
+
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        };
-
         return dbInitialisierenint;
-    };
+    }
 
 
     public void setScene(String scene){
@@ -93,27 +106,26 @@ public class MainApplication extends Application {
         setScene("AnmeldungsController.fxml");
     };
 
-    public void neuerBenutzer(Benutzer benutzer){
-        try {
+    public void neuerBenutzer(Benutzer benutzer) throws Exception {
+
             verwaltung.benutzerEintragen(benutzer);
 
             setScene("LoginController.fxml");
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
+
 
     };
 
-    public void benutzerLogin (Benutzer benutzer){
-        try{
-            verwaltung.benutzerOk(benutzer);
+    public void benutzerLogin (Benutzer benutzer) throws Exception{
 
-            setScene("anwendung.fxml");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+            if(verwaltung.benutzerOk(benutzer)) {
+                setScene("anwendung.fxml");
+            }else{
+                throw new BenutzerNichtVorhandenExeption("Benutzer existiert nicht");
+            }
+
+
+
+
 
     };
 

@@ -8,6 +8,7 @@ import prak4gemklassen.*;
 
 public class Server {
 
+    //BenutzerVerwaltungAdmin verwaltungserv;
     BenutzerVerwaltungAdmin verwaltungserv;
     ServerOrb serverOrb;
 
@@ -24,7 +25,11 @@ public class Server {
             e.printStackTrace();
         } catch(Exception e){e.printStackTrace();}
 
+        System.out.println(verwaltungserv.getDateiname());
+
         serverOrb = new ServerOrb(verwaltungserv);
+
+
     }
 
     public static void main(String[] args) {

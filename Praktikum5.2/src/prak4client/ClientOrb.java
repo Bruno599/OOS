@@ -23,12 +23,14 @@ public class ClientOrb {
 
     public ClientOrb (String address) {
         this.address = address;
+        //Connect();
     }
 
 
     private void Connect() {
         try {
-            socket = new Socket(address, port);
+            socket = new Socket("127.0.0.1", 6666);
+            System.out.println("verbindung hergestellt");
             os = new ObjectOutputStream(socket.getOutputStream());
             is = new ObjectInputStream(socket.getInputStream());
         } catch (Exception e) {
@@ -51,7 +53,7 @@ public class ClientOrb {
         try {
             Connect();
 
-            os.write(task);
+            os.writeInt(task);
             os.writeObject(value);
             os.flush();
 
@@ -71,8 +73,9 @@ public class ClientOrb {
         }
     }
 
-    public boolean benutzerOK(Benutzer user) {
-        return sendReceive(3, user);
+    public void benutzerOK(Benutzer user) {
+
+        sendReceive(3, user);
     }
 
     /*

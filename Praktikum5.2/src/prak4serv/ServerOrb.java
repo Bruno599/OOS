@@ -18,18 +18,19 @@ public class ServerOrb {
 
         try {
             serverSocket = new ServerSocket(6666);
-            Socket socket = serverSocket.accept();
-            is = new ObjectInputStream(socket.getInputStream());
-            os = new ObjectOutputStream(socket.getOutputStream());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         while(true) {
+
             try {
-
-                int task = is.read();
-
+                Socket client = serverSocket.accept();
+                is = new ObjectInputStream(client.getInputStream());
+                os = new ObjectOutputStream(client.getOutputStream());
+                int task = is.readInt();
+                System.out.println(task);
                 switch (task) {
                     case 2:
                         System.out.println("Neuer Benutzer: ");
@@ -56,6 +57,7 @@ public class ServerOrb {
                         os.writeBoolean(verwaltungserv.benutzerOk(user2));
                         os.flush();
                         break;
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();

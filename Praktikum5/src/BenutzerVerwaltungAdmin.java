@@ -11,6 +11,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      */
     private ArrayList<Benutzer> users;
     private String dateiname = "";
+    public boolean DBinizial = false;
 
     /**
      *
@@ -20,7 +21,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @throws FalscherDateiNameExeption
      */
     void dbInitialisieren(String fn) throws DateiwurdeNichtGeloeschtExeption, IOException, FalscherDateiNameExeption{
-
+        DBinizial = true;
         //filename = "test.txt";
         dateiname = fn;
 
@@ -34,6 +35,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
         users.clear();
 
         serialize(fn);
+
     }
 
 
@@ -99,10 +101,15 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
             throw new BenutzerIDIstSchonVergebenExeption("BenutzerID ist schon Vergeben");
         }
         else{
-            deserialize(dateiname);
-            users.add(benutzer);
-            System.out.println("Benutzer wurde Angelegt");
-            serialize(dateiname);
+            if(DBinizial) {
+                deserialize(dateiname);
+                users.add(benutzer);
+                System.out.println("Benutzer wurde Angelegt");
+                serialize(dateiname);
+            }else{
+                users.add(benutzer);
+                System.out.println("Benutzer wurde Angelegt");
+            }
         }
 
     };
@@ -113,8 +120,15 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @return
      */
     public boolean benutzerOk(Benutzer benutzer)throws ClassNotFoundException, IOException{
-        deserialize(dateiname);
-        return (users.contains(benutzer));
+        //deserialize(dateiname);
+        //return (users.contains(benutzer));
+
+        if(DBinizial) {
+            deserialize(dateiname);
+            return (users.contains(benutzer));
+        }else{
+            return (users.contains(benutzer));
+        }
     };
 
     /**
@@ -126,23 +140,36 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
 
     public void benutzerLoeschen(Benutzer benutzer)
             throws BenutzerKonnteNIchtGeloeschtWerdenExeption, BenutzerNichtVorhandenExeption, ClassNotFoundException, IOException, FalscherDateiNameExeption {
-            deserialize(dateiname);
-            if ( benutzerOk(benutzer) ) {
-
-                users.remove(benutzer);
-                serialize(dateiname);
+            if(DBinizial) {
+                deserialize(dateiname);
                 if (benutzerOk(benutzer)) {
 
-                   throw new BenutzerKonnteNIchtGeloeschtWerdenExeption
-                           ("Benutzer konnte nicht gelöscht werden");
-                }
-                else {
-                    System.out.println("Benutzer wurde erfolgreich gelöscht");
+                    users.remove(benutzer);
+                    serialize(dateiname);
+                    if (benutzerOk(benutzer)) {
 
+                        throw new BenutzerKonnteNIchtGeloeschtWerdenExeption
+                                ("Benutzer konnte nicht gelöscht werden");
+                    } else {
+                        System.out.println("Benutzer wurde erfolgreich gelöscht");
+
+                    }
+                } else {
+                    throw new BenutzerNichtVorhandenExeption("Benutzer nicht vorhanden!");
                 }
-            }
-            else{
-                throw new BenutzerNichtVorhandenExeption("Benutzer nicht vorhanden!");
+            }else{
+                if (benutzerOk(benutzer)) {
+                    users.remove(benutzer);
+                    if (benutzerOk(benutzer)) {
+
+                        throw new BenutzerKonnteNIchtGeloeschtWerdenExeption
+                                ("Benutzer konnte nicht gelöscht werden");
+                    } else {
+                        System.out.println("Benutzer wurde erfolgreich gelöscht");
+                    }
+                } else {
+                    throw new BenutzerNichtVorhandenExeption("Benutzer nicht vorhanden!");
+                }
             }
     }
 
@@ -151,8 +178,12 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @return gibt die Anzahl als int zurück.
      */
     public int getAnzahlUser() throws ClassNotFoundException, IOException{
-        deserialize(dateiname);              // ließt die Anzahl der in der Datenstruktur gespeicherten Einträge aus
-        return users.size();
+        if(DBinizial) {
+            deserialize(dateiname);              // ließt die Anzahl der in der Datenstruktur gespeicherten Einträge aus
+            return users.size();
+        }else{
+            return users.size();
+        }
     }
 
     /**
@@ -177,18 +208,29 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @return gibt ein true zurück wenn die BenutzerID vorhanden ist
      */
     public boolean searchUserID(Benutzer benutzer) throws ClassNotFoundException, IOException{
+        if(DBinizial){
+            deserialize(dateiname);
 
-        deserialize(dateiname);
+            int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
 
-        int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
-
-        for (int i = 0; i < anzahl; i++)
-        {
-            if(users.get(i).getUserID().equals(benutzer.getUserID())){
-                return true;
+            for (int i = 0; i < anzahl; i++)
+            {
+                if(users.get(i).getUserID().equals(benutzer.getUserID())){
+                    return true;
+                }
             }
+            return false;
+        }else {
+
+            int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
+
+            for (int i = 0; i < anzahl; i++) {
+                if (users.get(i).getUserID().equals(benutzer.getUserID())) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return false;
     }
 
 }

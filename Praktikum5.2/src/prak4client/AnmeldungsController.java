@@ -58,7 +58,13 @@ public class AnmeldungsController {
 
         Benutzer bn = new Benutzer(name,password.toCharArray());
 
-        this.MainAp.neuerBenutzer(bn);
+        //this.MainAp.neuerBenutzer(bn);
+
+        if (this.MainAp.remote) {
+            this.MainAp.neuerBenutzerrem(bn);;
+        } else {
+            this.MainAp.neuerBenutzer(bn);;
+        }
 
 
         //System.out.println(name.equals(password));

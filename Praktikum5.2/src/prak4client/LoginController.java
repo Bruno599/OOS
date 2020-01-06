@@ -26,6 +26,9 @@ public class LoginController {
     @FXML
     CheckBox checkBox;
 
+    @FXML
+    CheckBox remoteAnmeldung;
+
     public void setMainApplication(Client main){
         this.MainAp = main;
     };
@@ -37,15 +40,23 @@ public class LoginController {
         String password = passwordField.getText();
 
 
-
-        if (checkBox.isSelected())
-        {
-            this.MainAp.neuAnmeldung();
+        if (checkBox.isSelected()) {
+            if(remoteAnmeldung.isSelected()) {
+                this.MainAp.neuAnmeldungRem();
+                this.MainAp.remote = true;
+            }else{
+                this.MainAp.neuAnmeldung();
+            }
         }
         else
         {
             User1 = new Benutzer(name,password.toCharArray());
-            this.MainAp.benutzerLogin(User1);
+            if(remoteAnmeldung.isSelected()) {
+                this.MainAp.benutzerLoginrem(User1);
+            }else{
+                this.MainAp.benutzerLogin(User1);
+            }
+
         }
 
         //Stage stage = (Stage) closeButton.getScene().getWindow();

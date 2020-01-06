@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prak4serv.LoginController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prak4client.LoginController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="355.0" text="Benutzerverwaltung">
          <font>
@@ -26,6 +26,7 @@
             <Font size="19.0" />
          </font>
       </Label>
+      <CheckBox fx:id="remoteAnmeldung" layoutX="262.0" layoutY="262.0" mnemonicParsing="false" text="Remote Anmeldung" />
       <CheckBox fx:id="checkBox" layoutX="184.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleCheckboxAction" />
       <TextField fx:id="nameTextField" layoutX="184.0" layoutY="88.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="170.0" />
       <TextField fx:id="passwordField" layoutX="184.0" layoutY="144.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="170.0" />
