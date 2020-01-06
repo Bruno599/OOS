@@ -34,7 +34,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -54,8 +54,8 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\bruno\Documents\OOS\Praktikum4.1\src\resources" />
       <recent name="C:\Users\bruno\Documents\OOS\Praktikum4.1\src" />
+      <recent name="C:\Users\bruno\Documents\OOS\Praktikum4.1\src\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -70,7 +70,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.RunFXMLAnmeldungsController">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Praktikum4.1" />
@@ -120,8 +120,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.RunFXMLAnmeldungsController" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.RunFXMLLoginController" />
         <item itemvalue="Application.RunFXMLAnwendungsController" />
         <item itemvalue="JUnit.BenutzerTest" />
@@ -143,7 +143,11 @@
       <workItem from="1575198308580" duration="1270000" />
       <workItem from="1575759989167" duration="107000" />
       <workItem from="1575833616026" duration="78000" />
-      <workItem from="1575834632053" duration="5038000" />
+      <workItem from="1575834632053" duration="5729000" />
+      <workItem from="1575889328016" duration="3776000" />
+      <workItem from="1575904946035" duration="1372000" />
+      <workItem from="1576492379187" duration="37000" />
+      <workItem from="1578219320007" duration="5810000" />
     </task>
     <servers />
   </component>

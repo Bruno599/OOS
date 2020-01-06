@@ -19,7 +19,7 @@ public class Main extends Application {
 
             primaryStage.setTitle("Benutzerverwaltung");
             primaryStage.setScene(new Scene(root));
-            
+
             primaryStage.show();
 
         } catch (IOException e) {

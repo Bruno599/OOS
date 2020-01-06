@@ -5,24 +5,39 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 
 public class AnmeldungsController {
-
+    /**
+     *
+     */
     @FXML
     Button runButton;
-
+    /**
+     *
+     */
     @FXML
     TextField nameTextField;
-
+    /**
+     *
+     */
     @FXML
     TextField passwordField;
-
+    /**
+     *
+     */
     @FXML
     TextField passwordFieldVerify;
-
+    /**
+     *
+     */
     @FXML
     Label errorLabel;
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     public void handleButtonAction(ActionEvent event) {
         //String console = "test der konsole";

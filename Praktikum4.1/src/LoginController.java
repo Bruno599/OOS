@@ -7,29 +7,52 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 
-
+/**
+ *
+ */
 public class LoginController {
-
+    /**
+     * boolean ob anmedlung gesetzt ist
+     */
     private boolean neuAnmeldung = false;
-
+    /**
+     * aggregiertes Objekt
+     * Button attribute mit id close Button
+     */
     @FXML
     Button closeButton;
-
+    /**
+     *
+     * Textfielöd attribut
+     */
     @FXML
     TextField nameTextField;
-
+    /**
+     *
+     */
     @FXML
-    TextField passwordField;
-
+    PasswordField passwordbox;
+    /**
+     *
+     */
     @FXML
     CheckBox checkBox;
 
+    /**
+     * Wenn der Button Gedrückt wird
+     * Übernimmt nameTextField und passwordField auf der GUI un dspeichert Sie in name und Passwort
+     * Legt neues Objekt Bnutzer an
+     * Gibt objektt bn mittels methode tostring aus
+     * @param event
+     */
     @FXML
     public void handleButtonAction(ActionEvent event) {
         //String console = "test der konsole";
         String name = nameTextField.getText();
-        String password = passwordField.getText();
-
+        String password = passwordbox.getText();
+        /**
+         * bn ist ein neues Objekt vom Typ Benutzer
+         */
         Benutzer bn = new Benutzer(name,password.toCharArray());
 
 
@@ -42,6 +65,10 @@ public class LoginController {
 
     }
 
+    /**
+     * wenn die chekcbox aktiviert oder deaktiviert wird wird wird neuAnmedlung auf true oder false gesetzt
+     * @param event
+     */
     @FXML
     public void handleCheckboxAction(ActionEvent event) {
         neuAnmeldung = checkBox.isSelected();
