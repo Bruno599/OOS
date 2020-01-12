@@ -9,10 +9,11 @@ import java.io.*;
 public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable {
 
     /**
-     * Arrayliste in der alle Objekte des Typen prak4gemklassen.Benutzer gespeichert werden
+     * Arrayliste in der alle Objekte des Typen Benutzer gespeichert werden
      */
     private ArrayList<Benutzer> users;
     private String dateiname = "";
+    public boolean DBinizial = false;
 
     /**
      *
@@ -21,8 +22,8 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @throws IOException
      * @throws FalscherDateiNameExeption
      */
-    void dbInitialisieren(String fn) throws DateiwurdeNichtGeloeschtExeption, IOException, FalscherDateiNameExeption {
-
+    void dbInitialisieren(String fn) throws DateiwurdeNichtGeloeschtExeption, IOException, FalscherDateiNameExeption{
+        DBinizial = true;
         //filename = "test.txt";
         dateiname = fn;
 
@@ -32,10 +33,11 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
         if(exists && !file.delete()) {
             throw new DateiwurdeNichtGeloeschtExeption("Die alte Datei konnte nicht gelöscht werden");
         }
-        //prak4client.BenutzerVerwaltungAdmin verwaltung = new prak4client.BenutzerVerwaltungAdmin();
+        //BenutzerVerwaltungAdmin verwaltung = new BenutzerVerwaltungAdmin();
         users.clear();
 
         serialize(fn);
+
     }
 
 
@@ -47,15 +49,15 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      */
     public void serialize(String fn) throws IOException, FalscherDateiNameExeption {
 
-            if (fn.equals(dateiname)){
-                FileOutputStream fs = new FileOutputStream(fn);
-                ObjectOutputStream os = new ObjectOutputStream(fs);
-                os.writeObject(users);
-                os.close();
-            }
-            else {
-                throw new FalscherDateiNameExeption("Dateiname stimmt nicht überein");
-            }
+        if (fn.equals(dateiname)){
+            FileOutputStream fs = new FileOutputStream(fn);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+            os.writeObject(users);
+            os.close();
+        }
+        else {
+            throw new FalscherDateiNameExeption("Dateiname stimmt nicht überein");
+        }
 
     }
 
@@ -66,11 +68,11 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @throws IOException
      */
     public void deserialize(String fn) throws ClassNotFoundException, IOException{
-            FileInputStream fs = new FileInputStream(fn);
-            ObjectInputStream is = new ObjectInputStream(fs);
-            this.users = (ArrayList<Benutzer>) is.readObject();
-            //System.out.println(zeit);
-            is.close();
+        FileInputStream fs = new FileInputStream(fn);
+        ObjectInputStream is = new ObjectInputStream(fs);
+        this.users = (ArrayList<Benutzer>) is.readObject();
+        //System.out.println(zeit);
+        is.close();
     }
 
 
@@ -78,10 +80,10 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * Defaultkonstruktor der die Instanz der Arrayliste anlegt
      */
 
-     public BenutzerVerwaltungAdmin(){
+    public BenutzerVerwaltungAdmin(){
 
-      this.users = new ArrayList<Benutzer>();
-     }
+        this.users = new ArrayList<Benutzer>();
+    }
 
     /**
      *
@@ -92,76 +94,105 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
     public void benutzerEintragen (Benutzer benutzer)
             throws BenutzerExistiertBereitsExeption, BenutzerIDIstSchonVergebenExeption, BenutzerIstLeerExeption, ClassNotFoundException, IOException, FalscherDateiNameExeption {
         if(benutzer.getUserID().isEmpty()){
-            throw new BenutzerIstLeerExeption("Der eingegebene prak4gemklassen.Benutzer ist leer");
+            throw new BenutzerIstLeerExeption("Der eingegebene Benutzer ist leer");
         }
         if(benutzerOk(benutzer) == true) {
-            throw new BenutzerExistiertBereitsExeption("prak4gemklassen.Benutzer schon Vorhanden");
+            throw new BenutzerExistiertBereitsExeption("Benutzer schon Vorhanden");
         }
         if(searchUserID(benutzer)){
             throw new BenutzerIDIstSchonVergebenExeption("BenutzerID ist schon Vergeben");
         }
         else{
-            deserialize(dateiname);
-            users.add(benutzer);
-            System.out.println("prak4gemklassen.Benutzer wurde Angelegt");
-            serialize(dateiname);
+            if(DBinizial) {
+                deserialize(dateiname);
+                users.add(benutzer);
+                System.out.println("Benutzer wurde Angelegt");
+                serialize(dateiname);
+            }else{
+                users.add(benutzer);
+                System.out.println("Benutzer wurde Angelegt");
+            }
         }
 
     };
 
     /**
-     * List aus Datei und überprüft ob der prak4gemklassen.Benutzer angelegt wurde.
+     * List aus Datei und überprüft ob der Benutzer angelegt wurde.
      * @param benutzer
      * @return
      */
     public boolean benutzerOk(Benutzer benutzer)throws ClassNotFoundException, IOException{
-        deserialize(dateiname);
-        return (users.contains(benutzer));
+        //deserialize(dateiname);
+        //return (users.contains(benutzer));
+
+        if(DBinizial) {
+            deserialize(dateiname);
+            return (users.contains(benutzer));
+        }else{
+            return (users.contains(benutzer));
+        }
     };
 
     /**
-     * Loescht einen prak4gemklassen.Benutzer aus der Datenhaltung
+     * Loescht einen Benutzer aus der Datenhaltung
      * @param benutzer
      * @throws BenutzerKonnteNIchtGeloeschtWerdenExeption wird ausgelöst wenn benutzer nach löschvorgang in der Datenhaltung ist
-     * @throws BenutzerNichtVorhandenExeption wird ausgelöst wenn der zu löschende prak4gemklassen.Benutzer nicht vorhanden ist.
+     * @throws BenutzerNichtVorhandenExeption wird ausgelöst wenn der zu löschende Benutzer nicht vorhanden ist.
      */
 
     public void benutzerLoeschen(Benutzer benutzer)
             throws BenutzerKonnteNIchtGeloeschtWerdenExeption, BenutzerNichtVorhandenExeption, ClassNotFoundException, IOException, FalscherDateiNameExeption {
+        if(DBinizial) {
             deserialize(dateiname);
-            if ( benutzerOk(benutzer) ) {
+            if (benutzerOk(benutzer)) {
 
                 users.remove(benutzer);
                 serialize(dateiname);
                 if (benutzerOk(benutzer)) {
 
-                   throw new BenutzerKonnteNIchtGeloeschtWerdenExeption
-                           ("prak4gemklassen.Benutzer konnte nicht gelöscht werden");
-                }
-                else {
-                    System.out.println("prak4gemklassen.Benutzer wurde erfolgreich gelöscht");
+                    throw new BenutzerKonnteNIchtGeloeschtWerdenExeption
+                            ("Benutzer konnte nicht gelöscht werden");
+                } else {
+                    System.out.println("Benutzer wurde erfolgreich gelöscht");
 
                 }
+            } else {
+                throw new BenutzerNichtVorhandenExeption("Benutzer nicht vorhanden!");
             }
-            else{
-                throw new BenutzerNichtVorhandenExeption("prak4gemklassen.Benutzer nicht vorhanden!");
+        }else{
+            if (benutzerOk(benutzer)) {
+                users.remove(benutzer);
+                if (benutzerOk(benutzer)) {
+
+                    throw new BenutzerKonnteNIchtGeloeschtWerdenExeption
+                            ("Benutzer konnte nicht gelöscht werden");
+                } else {
+                    System.out.println("Benutzer wurde erfolgreich gelöscht");
+                }
+            } else {
+                throw new BenutzerNichtVorhandenExeption("Benutzer nicht vorhanden!");
             }
+        }
     }
 
     /**
-     * Ermittelt die Anzahl der in der Datenhaltung gespeicherten prak4gemklassen.Benutzer
+     * Ermittelt die Anzahl der in der Datenhaltung gespeicherten Benutzer
      * @return gibt die Anzahl als int zurück.
      */
     public int getAnzahlUser() throws ClassNotFoundException, IOException{
-        deserialize(dateiname);              // ließt die Anzahl der in der Datenstruktur gespeicherten Einträge aus
-        return users.size();
+        if(DBinizial) {
+            deserialize(dateiname);              // ließt die Anzahl der in der Datenstruktur gespeicherten Einträge aus
+            return users.size();
+        }else{
+            return users.size();
+        }
     }
 
     /**
-     *  Gibt alle prak4gemklassen.Benutzer in der Datenhaltung aus
+     *  Gibt alle Benutzer in der Datenhaltung aus
      */
     public void printUsers () throws ClassNotFoundException, IOException{
-        deserialize(dateiname);              //gibt alle, in der Bdatenstrucktur geseicherten prak4gemklassen.Benutzer aus
+        deserialize(dateiname);              //gibt alle, in der Bdatenstrucktur geseicherten Benutzer aus
         int anzahl = getAnzahlUser();
 
         System.out.println(anzahl);
@@ -179,18 +210,29 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @return gibt ein true zurück wenn die BenutzerID vorhanden ist
      */
     public boolean searchUserID(Benutzer benutzer) throws ClassNotFoundException, IOException{
+        if(DBinizial){
+            deserialize(dateiname);
 
-        deserialize(dateiname);
+            int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
 
-        int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
-
-        for (int i = 0; i < anzahl; i++)
-        {
-            if(users.get(i).getUserID().equals(benutzer.getUserID())){
-                return true;
+            for (int i = 0; i < anzahl; i++)
+            {
+                if(users.get(i).getUserID().equals(benutzer.getUserID())){
+                    return true;
+                }
             }
+            return false;
+        }else {
+
+            int anzahl = getAnzahlUser();   //anzahl speichert die Anzahl der Einträge
+
+            for (int i = 0; i < anzahl; i++) {
+                if (users.get(i).getUserID().equals(benutzer.getUserID())) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return false;
     }
 
 }

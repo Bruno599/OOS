@@ -73,9 +73,10 @@ public class ClientOrb {
         }
     }
 
-    public void benutzerOK(Benutzer user) {
+    public boolean benutzerOK(Benutzer user) {
 
-        sendReceive(3, user);
+        return(sendReceive(3, user));
+
     }
 
     /*

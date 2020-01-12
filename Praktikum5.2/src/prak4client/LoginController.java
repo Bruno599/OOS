@@ -34,7 +34,7 @@ public class LoginController {
     };
 
     @FXML
-    public void handleButtonAction(ActionEvent event) {
+    public void handleButtonAction(ActionEvent event) throws Exception{
         //String console = "test der konsole";
         String name = nameTextField.getText();
         String password = passwordField.getText();
@@ -52,9 +52,21 @@ public class LoginController {
         {
             User1 = new Benutzer(name,password.toCharArray());
             if(remoteAnmeldung.isSelected()) {
-                this.MainAp.benutzerLoginrem(User1);
+
+                try {
+                    System.out.println("Bla2");
+                    this.MainAp.benutzerLoginrem(User1);
+                }catch(prak4gemklassen.BenutzerNichtVorhandenExeption e) {
+                    nameTextField.setText("Fehler beim Login");
+                    passwordField.setText("");
+                }
             }else{
-                this.MainAp.benutzerLogin(User1);
+                try {
+                    this.MainAp.benutzerLogin(User1);
+                }catch(prak4gemklassen.BenutzerNichtVorhandenExeption e) {
+                    nameTextField.setText("Fehler beim Login");
+                    passwordField.setText("");
+                }
             }
 
         }

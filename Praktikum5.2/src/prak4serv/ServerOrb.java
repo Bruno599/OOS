@@ -41,6 +41,8 @@ public class ServerOrb {
 
                         try {
                             verwaltungserv.benutzerEintragen(user);
+                        } catch (BenutzerIDIstSchonVergebenExeption e) {
+                            result = false;
                         } catch (BenutzerExistiertBereitsExeption e) {
                             result = false;
                         }

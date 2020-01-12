@@ -58,6 +58,7 @@ public class Client extends Application {
         switch (scene) {
             case "LoginController.fxml":
                 ((LoginController)fxmlLoader.getController()).setMainApplication(this);
+                System.out.println("Bla");
                 primaryStage.setTitle("Login");
                 break;
             case "AnmeldungsController.fxml":
@@ -100,7 +101,7 @@ public class Client extends Application {
         setScene("AnmeldungsController.fxml");
     };
 
-    public void neuerBenutzer(Benutzer benutzer){
+    public void neuerBenutzer(Benutzer benutzer) {
         try {
             verwaltung.benutzerEintragen(benutzer);
 
@@ -123,31 +124,33 @@ public class Client extends Application {
 
     };
 
-    public void benutzerLogin (Benutzer benutzer){
+    public void benutzerLogin (Benutzer benutzer) throws Exception{
         remote = false;
-        try{
-            verwaltung.benutzerOk(benutzer);
 
+        if(verwaltung.benutzerOk(benutzer)) {
             setScene("anwendung.fxml");
-        }
-        catch (Exception e){
-            e.printStackTrace();
+        }else{
+            throw new prak4gemklassen.BenutzerNichtVorhandenExeption("Benutzer existiert nicht");
         }
 
     };
 
-    public void benutzerLoginrem (Benutzer benutzer){
+    public void benutzerLoginrem (Benutzer benutzer) throws Exception{
         remote = true;
+        if(clientOrb.benutzerOK(benutzer))
+        {setScene("anwendung.fxml");}
+        else{
+            //setScene("LoginController.fxml");
+            throw new prak4gemklassen.BenutzerNichtVorhandenExeption("Benutzer nicht vorhanden");
+        }
 
-        try{
-            clientOrb.benutzerOK(benutzer);
-
+        /*
+        if(clientOrb.benutzerOK(benutzer)) {
             setScene("anwendung.fxml");
+        }else{
+            throw new prak4gemklassen.BenutzerExistiertBereitsExeption("Benutzer existiert nicht");
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
+        */
     };
 
     public static void main(String[] args){
